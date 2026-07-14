@@ -1,0 +1,419 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+	overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+	width: 0;
+}
+
+body {
+	box-sizing: border-box;
+	background-color: #e1e1e1;
+}
+
+@font-face {
+	src: url('../fonts/FoundersGrotesk.woff');
+	font-family: FoundersGrotesk;
+	font-display: swap;
+}
+
+@font-face {
+	src: url('../fonts/NeueMontreal.woff');
+	font-family: NeueMontreal;
+	font-display: swap;
+}
+
+@layer utilities {
+	.padding-x {
+		@apply px-[50px] md:px-[30px] sm:px-[20px] xm:px-[20px];
+	}
+	.padding-y {
+		@apply py-[100px] lg:py-[80px] md:py-[60px] sm:py-[40px] xm:py-[40px];
+	}
+	.margin {
+		@apply mt-[170px] lg:mt-[80px] md:mt-[60px] sm:mt-[40px] xm:mt-[40px] mb-[130px] lg:mb-[80px] md:mb-[60px] sm:mb-[40px] xm:mb-[40px];
+	}
+	.heading {
+		@apply text-[150px] leading-[100px] lg:text-[130px] lg:leading-[98px] md:text-[100px] md:leading-[75px] sm:text-[74px] sm:leading-[50px] xm:text-[64px] xm:leading-[45px];
+	}
+	.sub-heading {
+		@apply text-[55px] leading-[55px] lg:text-[52px] lg:leading-[52px] md:text-[52px] md:leading-[52px] sm:text-[40px] sm:leading-[40px] xm:text-[31px] xm:leading-[31px];
+	}
+	.paragraph {
+		@apply text-[18px] leading-[26px] lg:text-[16px] lg:leading-[24px] md:text-[16px] md:leading-[24px] sm:text-[16px] sm:leading-[24px] xm:text-[16px] xm:leading-[24px];
+	}
+	.sub-paragraph {
+		@apply xl:text-[21px] xl:leading-[31px] text-[16px] leading-[24px];
+	}
+	.small-text {
+		@apply xl:text-[16px] xl:leading-[24px] lg:text-[16px] lg:leading-[24px] text-[14px] leading-[22px];
+	}
+}
+
+.hover {
+	color: #35292e;
+	position: relative;
+	text-decoration: none;
+}
+
+.hover::before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	border-radius: 4px;
+	background-color: #35292e;
+	bottom: 0;
+	left: 0;
+	transform-origin: right;
+	transform: scaleX(0);
+	transition: transform 0.5s ease-in-out;
+}
+
+.hover:hover::before {
+	transform-origin: left;
+	transform: scaleX(1);
+}
+
+.link-flash {
+	--ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+
+	position: relative;
+}
+
+.link-flash::before,
+.link-flash::after {
+	position: absolute;
+	content: '';
+	left: 0;
+	bottom: -2px;
+	display: block;
+	width: 100%;
+	height: 2px;
+	background: #35292e;
+	transition: 1.1s var(--ease-out-expo);
+}
+
+.dark.link-flash::before,
+.dark.link-flash::after {
+	position: absolute;
+	content: '';
+	left: 0;
+	bottom: -2px;
+	display: block;
+	width: 100%;
+	height: 2px;
+	background: #e1e1e1;
+	transition: 1.1s var(--ease-out-expo);
+}
+
+.link-flash::before {
+	transform: scaleX(0);
+	transform-origin: left;
+}
+
+.link-flash::after {
+	transform-origin: right;
+	transition-delay: 0.25s;
+}
+
+.link-flash:hover::before {
+	transform: scaleX(1);
+	transition-delay: 0.25s;
+}
+
+.link-flash:hover::after {
+	transform: scaleX(0);
+	transition-delay: 0s;
+}
+
+.h {
+	height: calc(100vh + 600px);
+}
+
+.blend-target {
+	cursor: none;
+}
+
+.preserve-3d {
+	transform-style: preserve-3d;
+}
+
+.textContainer {
+	margin-left: 10vw;
+	position: relative;
+	cursor: pointer;
+	transition: transform 0.4s;
+	transform-style: preserve-3d;
+}
+
+.textContainer p {
+	font-size: 12vw;
+	padding-bottom: 5vb;
+	font-weight: 700;
+	margin: 0px;
+	transition: all 0.4s;
+	color: #e1e1e1;
+	line-height: 8vw;
+}
+
+.textContainer .secondary {
+	transform: rotateX(-90deg) translateY(3.5vw);
+	transform-origin: bottom center;
+	position: absolute;
+	top: 0;
+	color: #35292e;
+	opacity: 0;
+}
+
+.textContainer:hover {
+	transform: rotateX(90deg);
+}
+
+.textContainer:hover .secondary {
+	opacity: 1;
+}
+
+.textContainer:hover .primary {
+	transform: translateY(-100%);
+	opacity: 0;
+}
+
+.imageGallery {
+	display: flex;
+	height: 100vh;
+	position: relative;
+	overflow: hidden;
+	z-index: 9999;
+}
+
+.imageGallery img {
+	width: 30vw;
+	position: absolute;
+	display: none;
+	z-index: 9999;
+	transform: translateX(-50%) translateY(-50%);
+}
+
+@layer base {
+	:root {
+		--border: 214.3 31.8% 91.4%;
+		--input: 214.3 31.8% 91.4%;
+		--ring: 222.2 84% 4.9%;
+		--chart-1: 12 76% 61%;
+		--chart-2: 173 58% 39%;
+		--chart-3: 197 37% 24%;
+		--chart-4: 43 74% 66%;
+		--chart-5: 27 87% 67%;
+		--radius: 0.5rem;
+	}
+	.dark {
+		--border: 217.2 32.6% 17.5%;
+		--input: 217.2 32.6% 17.5%;
+		--ring: 212.7 26.8% 83.9%;
+		--chart-1: 220 70% 50%;
+		--chart-2: 160 60% 45%;
+		--chart-3: 30 80% 55%;
+		--chart-4: 280 65% 60%;
+		--chart-5: 340 75% 55%;
+	}
+}
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
+}
+
+/* Custom scrollbar styles */
+@layer utilities {
+	.scrollbar-thin {
+		scrollbar-width: thin;
+		scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+	}
+
+	.scrollbar-thin::-webkit-scrollbar {
+		width: 6px;
+	}
+
+	.scrollbar-thin::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	.scrollbar-thin::-webkit-scrollbar-thumb {
+		background-color: rgba(0, 0, 0, 0.2);
+		border-radius: 20px;
+		transition: background-color 0.2s ease;
+	}
+
+	.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+		background-color: rgba(0, 0, 0, 0.2);
+	}
+}
+
+.textarea {
+	overflow: hidden; /* Hides both horizontal and vertical scrollbars */
+	resize: none; /* Prevents the user from resizing the textarea */
+}
+
+/* globals.css */
+
+.streaming-text::after {
+	content: '▋'; /* Karakter blok */
+	animation: blink 1s infinite;
+	display: inline-block;
+	margin-left: 2px;
+}
+
+@keyframes blink {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+}
+
+/* Styling untuk CMDK Command Palette */
+[cmdk-dialog-overlay] {
+	position: fixed;
+	z-index: 99999;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(8px);
+	animation: fadeIn 0.2s ease;
+}
+
+[cmdk-dialog] {
+	position: fixed;
+	z-index: 99999;
+	top: 20%;
+	left: 50%;
+	transform: translate(-50%, 0);
+	width: 90%;
+	max-width: 640px;
+	background-color: #1a1a1a;
+	color: #f5f5f5;
+	border-radius: 12px;
+	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+	animation: popIn 0.3s ease;
+	font-family: 'NeueMontreal', sans-serif;
+}
+
+[cmdk-input] {
+	width: 100%;
+	padding: 1.25rem;
+	font-size: 1.125rem;
+	background-color: transparent;
+	color: white;
+	border-bottom: 1px solid #333;
+	outline: none;
+}
+
+[cmdk-list] {
+	max-height: 400px;
+	overflow-y: auto;
+	padding: 0.5rem;
+}
+
+[cmdk-group-heading] {
+	padding: 0.5rem 1rem;
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: #a3a3a3;
+}
+
+[cmdk-item] {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.75rem;
+	padding: 0.75rem 1rem;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background-color 0.1s ease;
+}
+
+[cmdk-item][data-selected='true'] {
+	background-color: #333;
+}
+
+[cmdk-shortcut] {
+	display: flex;
+	gap: 0.2rem;
+}
+
+[cmdk-shortcut] kbd,
+.cmdk-footer kbd {
+	font-family: monospace;
+	padding: 0.1rem 0.4rem;
+	background-color: #333;
+	border-radius: 4px;
+	font-size: 0.75rem;
+}
+
+.cmdk-footer {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.5rem 1rem;
+	font-size: 0.8rem;
+	color: #a3a3a3;
+	border-top: 1px solid #333;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes popIn {
+	from {
+		transform: translate(-50%, 20px) scale(0.95);
+		opacity: 0;
+	}
+	to {
+		transform: translate(-50%, 0) scale(1);
+		opacity: 1;
+	}
+}
+
+/* --- Styling Scrollbar Elegan untuk CMDK --- */
+
+/* Menargetkan scrollbar di dalam daftar perintah */
+[cmdk-list]::-webkit-scrollbar {
+	width: 12px;
+}
+
+/* Bagian "rel" atau track di belakang handle scrollbar */
+[cmdk-list]::-webkit-scrollbar-track {
+	background: transparent;
+	margin-block: 0.5rem;
+}
+
+/* Handle scrollbar itu sendiri */
+[cmdk-list]::-webkit-scrollbar-thumb {
+	background: #444;
+	border-radius: 10px;
+	border: 2px solid #1a1a1a;
+}
+
+/* Handle scrollbar itu saat di-hover */
+[cmdk-list]::-webkit-scrollbar-thumb:hover {
+	background: #666;
+}
+
+
