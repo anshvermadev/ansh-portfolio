@@ -11,23 +11,29 @@
     <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" /></a>
     <a href="https://vercel.com/"><img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" /></a>
   </p>
+
+  <p align="center">
+    <a href="https://ansh-portfolio-v1.vercel.app/"><strong>Explore the Live Portfolio »</strong></a>
+  </p>
 </div>
 
 <br />
 
 ## 🌐 Live Website
 
-Check out the live portfolio here: **[ansh-verma.xyz](https://www.ansh-verma.xyz)**
+Check out the live portfolio here: **[ansh-portfolio-v1.vercel.app](https://ansh-portfolio-v1.vercel.app/)**
 
 ---
 
 ## 📖 Table of Contents
 
+- [🌐 Live Website](#-live-website)
 - [✨ Features](#-features)
 - [🛠️ Tech Stack](#️-tech-stack)
 - [📂 Folder Structure](#-folder-structure)
 - [🚀 Getting Started](#-getting-started)
 - [⚙️ Environment Variables](#️-environment-variables)
+- [🤝 Contributing & Usage](#-contributing--usage)
 - [👨‍💻 Author](#-author)
 
 ---
@@ -111,9 +117,6 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to view the 
 Create a `.env.local` file in the root directory and add the following keys. (See `.env.example` for reference).
 
 ```env
-# Google AI API Key for generative AI features
-GOOGLE_API_KEY=your_google_api_key
-
 # EmailJS configuration for the contact form
 NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_emailjs_service_id
 NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_emailjs_template_id
@@ -123,12 +126,26 @@ NEXT_PUBLIC_EMAILJS_TO_EMAIL=your_email
 
 ---
 
+## 🤝 Contributing & Usage
+
+Feel free to explore, fork, and customize this repository for your own portfolio!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+If you find this project helpful or inspiring, feel free to give it a ⭐ on GitHub!
+
+---
+
 ## 👨‍💻 Author
 
 **Ansh Verma** 
 *Full Stack Developer from Navi Mumbai, India*
 
-- 🌐 **Website**: [ansh-verma.xyz](https://www.ansh-verma.xyz)
+- 🌐 **Portfolio**: [ansh-portfolio-v1.vercel.app](https://ansh-portfolio-v1.vercel.app/)
 - 🐙 **GitHub**: [@anshvermadev](https://github.com/anshvermadev)
 - 💼 **LinkedIn**: [Ansh Verma](https://www.linkedin.com/in/ansh-verma-37504b2b7/)
 
